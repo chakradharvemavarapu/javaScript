@@ -1,0 +1,169 @@
+<html>
+    <head>
+	<title> javaScript Forms</title>
+	<!--> favicon<-->
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+	
+	<!--> Java script code<-->
+        <script>
+            function formValidations() {
+			event.preventDefault();
+                var name =
+                    document.forms.RegForm.Name.value;
+                var email =
+                    document.forms.RegForm.EMail.value;
+                var phone =
+                    document.forms.RegForm.Telephone.value;
+                var what =
+                    document.forms.RegForm.Subject.value;
+                var password =
+                    document.forms.RegForm.Password.value;
+                var address =
+                    document.forms.RegForm.Address.value;
+				var Comment =
+                    document.forms.RegForm.Comment.value;
+                var regEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g;
+                var regPhone=/^\d{10}$/;                        
+                var regName = /\d+$/g;           
+ 
+                if (name == "" || regName.test(name)) {
+                    window.alert("Please enter your name properly.");
+                    name.focus();
+                    return false;
+                }
+				
+                if (address == "") {
+                    window.alert("Please enter your address.");
+                    address.focus();
+                    return false;
+                }
+                 
+                if (email == "" || !regEmail.test(email)) {
+                    window.alert("Please enter a valid e-mail address.");
+                    email.focus();
+                    return false;
+                }
+                  
+                if (password == "") {
+                    alert("Please enter your password");
+                    password.focus();
+                    return false;
+                }
+ 
+                if(password.length <6){
+                    alert("Password should be atleast 6 character long");
+                    password.focus();
+                    return false;
+ 
+                }
+                if (phone == "" || !regPhone.test(phone)) {
+                    alert("Please enter valid phone number.");
+                    phone.focus();
+                    return false;
+                }
+
+				if (Comment == "") {
+                    alert("Please enter your Comment");
+                    Comment.focus();
+                    return false;
+                }
+                if (what.selectedIndex == -1) {
+                    alert("Please enter your course.");
+                    what.focus();
+                    return false;
+                }
+				
+				window.alert("Login Successfuly");
+				
+                console.log("Name:"+""+name);
+				console.log("Address:"+""+address);
+				console.log("Email:"+""+email);
+				console.log("Password:"+""+password);
+				console.log("phoneNumber:"+""+phone);
+				console.log("Selection:"+""+what);
+				console.log("Comment:"+""+Comment);
+				document.getElementById("reset").reset();
+				/*window.location.href = "http://www.w3schools.com";*/
+            }
+			
+			function reset_form(){
+			window.alert("Are you sure reset the form");
+			}
+        </script>
+		
+		<!--> CSS code<-->
+        <style>
+          
+			body{
+				background-image:url("background.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+				width:90%;
+				height:80vh;	
+			}
+            .bgc, form {
+                margin: 50px auto;
+                width: 600px;
+				padding-left:70px;
+				color:white;
+            }
+			.bgc{
+				background-image:url("image.jpg");
+				background-repeat: no-repeat;
+			background-size: cover;
+				width:600px;
+				opacity: 0.6;
+			}
+			h1,p{
+				color:blue;
+				font-weight:bold;
+			}
+				.button{
+				margin-left:400px;
+			}
+			.copyrights{
+				background-color:black;
+				color: #ff0000;
+				width:671px;
+				margin-left: -141px;
+			}
+			.copyrights h4{
+			text-align:center;
+			}
+        </style>
+    </head>
+ 
+    <body>
+	
+	<!--> html code<-->
+	<div class="bgc">
+        <h1 style="text-align: center;">REGISTRATION FORM</h1>
+        <form name="RegForm" onsubmit="return formValidations() " method="post" id="reset">
+             
+			<p>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" size="40" name="Name" id="Name" /></p> <br />
+			<p>Address:&nbsp;&nbsp; <input type="text" size="40" name="Address" /> </p> <br />
+            <p>E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 <input type="text" size="40" name="EMail" /></p> <br />
+            <p>Password:&nbsp; <input type="text" size="40" name="Password" /></p> <br />
+            <p>Telephone: <input type="text" size="40" name="Telephone" /></p> <br />
+			<p>SELECT YOUR COURSE
+                <select type="text" value="" name="Subject" style="width:194px;" >
+                    <option>BTECH</option>
+                    <option>BBA</option>
+                    <option>BCA</option>
+                    <option>B.COM</option>
+                    <option>Other</option>
+                </select>
+            </p><br> <br>
+            <p>Comments:&nbsp; <textarea type="text" cols="38" name="Comment"> </textarea></p>
+           <p class="button">
+                <button style="background-color:green;color:white;border-radius:10px;border: 5px solid green;" type="submit">Submit</button>
+                <button style="background-color:orange;color:white;border-radius:10px; border: 5px solid orange;" type="reset" onclick="reset_form()">Reset</button>
+            </p>
+			<div class="copyrights">
+			<h4>&copy All copyrights reserved CHAKRADHAR</h4>
+			</div>
+ 
+        </form>
+		</div>
+    </body>
+</html>

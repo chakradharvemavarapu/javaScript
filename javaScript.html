@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+	<html>
+		<head></head>
+		<body>
+			<form action="https://www.w3schools.com/js/js_validation.asp" id="myForm" method="post">
+				Password<input type="password" id="ps" required><br>
+				confirmPassword<input type="password" id="cps" required><br>
+				<button type="button" onclick="submitForm()">submit</button>
+			</form>
+			<script>
+					function submitForm(){
+					event.preventDefault();
+					
+					var ps = document.getElementById("ps").value;
+					var cps = document.getElementById("cps").value;
+					if(ps==cps){
+					alert("Login successfully");
+					console.log("Password:"+""+ ps);
+					console.log("confirmPassword:"+""+ cps);  
+					document.getElementById("myForm").reset();
+					}
+					else{
+					alert("Passwords not matching");
+					document.getElementById("myForm").reset();					
+					}
+				}
+			</script>
+		</body>
+	</html>

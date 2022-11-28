@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<form onsubmit="ch()">
+firstName: <input type="text" id="fn">
+<br>
+ lastName:<input type="text" id="ls">
+ <br>
+<button type="submit" >submit</button>
+</form>
+<script>
+function ch(){
+event.preventDefault();
+
+var fn = document.getElementById("fn").value;
+var ls = document.getElementById("ls").value;
+console.log(fn);
+console.log(ls);
+} 
+</script>
+</body>
+</html>
+
